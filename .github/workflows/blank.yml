@@ -10,13 +10,13 @@ permissions:
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
+#  push:
+#    branches: [ "main" ]
 #  pull_request:
 #    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -58,13 +58,14 @@ jobs:
         with:
          context: .
          push: true
-         tags: omniregistry/backend-end:${{ github.sha }}
+         tags: omniregistry/back-end:${{ github.sha }}
       - name: SetCommitStatus
         uses: myrotvorets/set-commit-status-action@master
         with:
            token: ${{ secrets.TOKEN }}
            status: success
            context: BuildImage
+           sha: ${{ github.sha }}
            description: omniregistry/back-end:${{ github.sha }}
 
       
@@ -90,7 +91,7 @@ jobs:
         run: |
           cd deployment-1
           ls
-          sed -i 's+omniregistry/front-end.*+omniregistry/front-end:${{ github.sha }}+g' deployment-1-2.yaml                    
+          sed -i 's+omniregistry/back-end.*+omniregistry/back-end:${{ github.sha }}+g' deployment-1-2.yaml                    
           export COMMIT_MESSAGE="DT:${{ github.sha }}:DT"
           echo $COMMIT_MESSAGE
           git add .
