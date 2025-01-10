@@ -74,7 +74,7 @@ jobs:
         with:
            token: ${{ github.token }}
            #artifacts: omniregistry/back-end:${{ github.sha }}
-           artifacts: omniregistry/back-end:03be0c6c6253c5c77349ac657881008196e843aa
+           artifacts: omniregistry/back-end:ccb7e92badb4d9b927358a58d438c5722c59d8b6
 
       
 
@@ -102,7 +102,7 @@ jobs:
           cd deployment-1
           ls
           #sed -i 's+omniregistry/back-end.*+omniregistry/back-end:${{ github.sha }}+g' deployment-1-2.yaml                    
-          sed -i 's+omniregistry/back-end.*+omniregistry/back-end:03be0c6c6253c5c77349ac657881008196e843aa+g' deployment-1-2.yaml
+          sed -i 's+omniregistry/back-end.*+omniregistry/back-end:ccb7e92badb4d9b927358a58d438c5722c59d8b6+g' deployment-1-2.yaml
           export COMMIT_MESSAGE="DT:${{ github.sha }}:DT"
           echo $COMMIT_MESSAGE
           git add .
