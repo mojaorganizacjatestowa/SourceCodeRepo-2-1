@@ -73,8 +73,8 @@ jobs:
         uses: omnilogy-pl/set-status-of-commit@1.1.0
         with:
            token: ${{ github.token }}
-           #artifacts: omniregistry/back-end:${{ github.sha }}
-           artifacts: omniregistry/back-end:ccb7e92badb4d9b927358a58d438c5722c59d8b6
+           artifacts: omniregistry/back-end:${{ github.sha }}
+           #artifacts: omniregistry/back-end:ccb7e92badb4d9b927358a58d438c5722c59d8b6
 
       
 
@@ -101,8 +101,8 @@ jobs:
         run: |
           cd deployment-1
           ls
-          #sed -i 's+omniregistry/back-end.*+omniregistry/back-end:${{ github.sha }}+g' deployment-1-2.yaml                    
-          sed -i 's+omniregistry/back-end.*+omniregistry/back-end:ccb7e92badb4d9b927358a58d438c5722c59d8b6+g' deployment-1-2.yaml
+          sed -i 's+omniregistry/back-end.*+omniregistry/back-end:${{ github.sha }}+g' deployment-1-2.yaml                    
+          #sed -i 's+omniregistry/back-end.*+omniregistry/back-end:ccb7e92badb4d9b927358a58d438c5722c59d8b6+g' deployment-1-2.yaml
           export COMMIT_MESSAGE="DT:${{ github.sha }}:DT"
           echo $COMMIT_MESSAGE
           git add .
